@@ -1,4 +1,9 @@
 #!/bin/bash
-export p=`pwd`
-export pc=`cygpath -w "$p/$1"`
-explorer.exe '/root,$pc' &
+
+if [ "Linux" = `uname` ] ; then
+	nautilus .
+else
+	export p=`pwd`
+	export pc=`cygpath -w "$p/$1"`
+	explorer.exe '/root,$pc' &
+fi
